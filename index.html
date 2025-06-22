@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Smart Locker UI</title>
+<style>
+  body {
+    margin: 0;
+    background: #5D626E;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+  }
+
+  /* หน้าแรก */
+  #page-home {
+  width: 1440px;
+  height: 1024px;
+  position: absolute;      /* หรือ fixed ก็ได้ */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+  .background-shape {
+    width: 1045px;
+    height: 562.69px;
+    background: #BDBDBD;
+    border-radius: 129.55px;
+    position: absolute;
+    left: 197px;
+    top: 368px;
+  }
+
+  .button {
+    width: 417px;
+    height: 112px;
+    border-radius: 95px;
+    background: white;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #71B9B8;
+    font-size: 64px;
+    font-weight: 400;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .button:hover {
+    background-color: #71B9B8;
+    color: white;
+  }
+
+  #btn-deposit {
+    left: 511px;
+    top: 414px;
+  }
+
+  #btn-receive {
+    left: 511px;
+    top: 583px;
+  }
+
+  #btn-extend-time {
+    left: 511px;
+    top: 751px;
+  }
+
+  /* หน้าเลือก Size */
+  #page-select-size {
+    width: 1440px; height: 1024px;
+    position: relative;
+    background: #5D626E;
+    display: none; /* ซ่อนไว้ก่อน */
+    overflow: hidden;
+  }
+
+  .size-box {
+    width: 650px; height: 450px;
+    background: #BDBDBD;
+    border-radius: 129.55px;
+    position: absolute;
+    left: 520px;
+  }
+
+  #size-m-box {
+    top: 44px;
+  }
+
+  #size-l-box {
+    top: 537px;
+  }
+
+  .size-label {
+    position: absolute;
+    color: #71B9B8;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 64px;
+    text-align: center;
+    width: 311px;
+  }
+
+  #label-m {
+    left: 774px;
+    top: 168px;
+  }
+
+  #label-l {
+    left: 774px;
+    top: 649px;
+  }
+
+  .available-slots {
+    position: absolute;
+    width: 250px;
+    height: 110px;
+    color: #71B9B8;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    text-align: center;
+  }
+
+  #slots-m {
+    left: 820px;
+    top: 287px;
+  }
+
+  #slots-l {
+    left: 820px;
+    top: 770px;
+  }
+
+  .size-image {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 575px;
+  }
+
+  #img-m {
+    top: 154px;
+  }
+
+  #img-l {
+    top: 655px;
+  }
+
+  /* ปุ่มกลับ */
+  #btn-back {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    padding: 15px 30px;
+    font-size: 24px;
+    border-radius: 40px;
+    border: none;
+    background: #71B9B8;
+    color: white;
+    cursor: pointer;
+  }
+
+  #btn-back:hover {
+    background: #569a99;
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- หน้าแรก -->
+  <div id="page-home">
+    <div class="background-shape"></div>
+    <button id="btn-deposit" class="button">ฝากของ</button>
+    <button id="btn-receive" class="button">รับของ</button>
+    <button id="btn-extend-time" class="button">เพิ่มเวลา</button>
+  </div>
+
+  <!-- หน้าเลือก Size -->
+  <div id="page-select-size">
+    <div id="size-m-box" class="size-box"></div>
+    <div id="size-l-box" class="size-box"></div>
+
+    <div id="label-m" class="size-label">Size M</div>
+    <img id="img-m" class="size-image" src="https://placehold.co/200x200" alt="Size M" />
+    <div id="slots-m" class="available-slots">เหลือ 2 ช่อง</div>
+
+    <div id="label-l" class="size-label">Size L</div>
+    <img id="img-l" class="size-image" src="https://placehold.co/200x200" alt="Size L" />
+    <div id="slots-l" class="available-slots">เหลือ 3 ช่อง</div>
+
+    <button id="btn-back">กลับ</button>
+  </div>
+
+<script>
+  const pageHome = document.getElementById('page-home');
+  const pageSelectSize = document.getElementById('page-select-size');
+  const btnDeposit = document.getElementById('btn-deposit');
+  const btnBack = document.getElementById('btn-back');
+
+  // เมื่อกด ฝากของ ให้ซ่อนหน้าแรก แล้วแสดงหน้าเลือก Size
+  btnDeposit.addEventListener('click', () => {
+    pageHome.style.display = 'none';
+    pageSelectSize.style.display = 'block';
+  });
+
+  // กดกลับ ให้กลับไปหน้าแรก
+  btnBack.addEventListener('click', () => {
+    pageSelectSize.style.display = 'none';
+    pageHome.style.display = 'block';
+  });
+
+  btnDeposit.addEventListener('click', () => {
+  pageHome.style.display = 'none';
+  pageSelectSize.style.display = 'block';
+
+  // ส่งข้อมูลไปยังเซิร์ฟเวอร์
+  fetch('http://localhost:5000/deposit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'deposit_clicked' })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log("ตอบกลับจากเซิร์ฟเวอร์:", data);
+  })
+  .catch(err => {
+    console.error("เชื่อมต่อเซิร์ฟเวอร์ไม่ได้", err);
+  });
+});
+
+</script>
+ 
+</body>
+</html>
