@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Smart Locker UI - Tailwind Style</title>
+<title>Smart Locker UI - Responsive</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   /* Custom font sizes (Tailwind ปกติรองรับไม่ถึง 8xl) */
@@ -13,32 +13,32 @@
   }
 </style>
 </head>
-<body class="bg-[#fff8e7] flex justify-center items-center min-h-screen font-sans">
+<body class="bg-[#fff8e7] flex justify-center items-center min-h-screen font-sans p-4">
 
   <!-- หน้าแรก -->
-  <div id="page-home" class="relative w-[1280px] h-[800px] bg-[#fff8e7]">
+  <div id="page-home" class="relative bg-[#fff8e7] max-w-[1280px] w-full h-auto sm:h-[800px] rounded-lg shadow-lg p-6 sm:p-12">
     
     <!-- โลโก้ -->
-    <div class="absolute top-[162px] left-[41px] w-[475px] h-[475px] flex flex-col items-center justify-center">
-      <div class="flex items-center gap-4 text-[#71b9b8]">
-        <span class="text-8xl font-bold">Easy</span>
-        <!-- ใช้ emoji แทนไอคอน lock ชั่วคราว -->
-        <span class="text-[#71b9b8]" style="font-size:6rem;">🔒</span>
+    <div class="flex flex-col items-center sm:items-start sm:flex-row sm:gap-8">
+      <div class="flex items-center gap-4 text-[#71b9b8] mb-6 sm:mb-0">
+        <span class="text-6xl sm:text-8xl font-bold">Easy</span>
+        <!-- emoji lock -->
+        <span class="text-[#71b9b8] text-6xl sm:text-8xl">🔒</span>
       </div>
-      <div class="text-8xl font-bold text-[#71b9b8] -mt-4">Locker</div>
+      <div class="text-6xl sm:text-8xl font-bold text-[#71b9b8]">Locker</div>
     </div>
 
     <!-- ปุ่ม -->
-    <div id="btn-deposit" class="absolute top-[162px] left-[576px] w-[600px] h-[150px]">
+    <div class="mt-12 space-y-8 sm:space-y-0 sm:flex sm:flex-col sm:gap-10">
       <button
-        class="w-full h-full bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg border-0 text-black font-medium text-8xl"
+        id="btn-deposit"
+        class="w-full sm:w-[600px] h-[150px] bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg border-0 text-black font-medium text-5xl sm:text-8xl"
       >
         ฝากของ
       </button>
-    </div>
-    <div id="btn-receive" class="absolute top-[487px] left-[576px] w-[600px] h-[150px]">
       <button
-        class="w-full h-full bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg border-0 text-black font-medium text-8xl"
+        id="btn-receive"
+        class="w-full sm:w-[600px] h-[150px] bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg border-0 text-black font-medium text-5xl sm:text-8xl"
       >
         รับของ
       </button>
@@ -46,23 +46,23 @@
   </div>
 
   <!-- หน้าเลือกขนาด -->
-  <div id="page-select-size" class="relative w-[1280px] h-[800px] bg-[#fff8e7] hidden">
+  <div id="page-select-size" class="relative bg-[#fff8e7] max-w-[1280px] w-full h-auto sm:h-[800px] rounded-lg shadow-lg p-6 sm:p-12 hidden mt-8">
 
-    <button id="btn-back" class="absolute top-6 left-6 px-6 py-3 bg-[#71b9b8] text-white rounded-3xl hover:bg-[#5fa5a4] font-semibold">
+    <button id="btn-back" class="mb-6 px-6 py-3 bg-[#71b9b8] text-white rounded-3xl hover:bg-[#5fa5a4] font-semibold">
       กลับ
     </button>
 
-    <div class="max-w-3xl mx-auto mt-24 space-y-12">
+    <div class="space-y-12">
       <div class="bg-[#bdbdbd] rounded-[50px] p-6 flex flex-col items-center">
         <img src="https://placehold.co/200x200" alt="Size M" class="w-48 h-48" />
-        <div class="text-[#71b9b8] font-extrabold text-6xl mt-4">Size M</div>
-        <div class="text-[#71b9b8] font-extrabold text-4xl mt-2">เหลือ 2 ช่อง</div>
+        <div class="text-[#71b9b8] font-extrabold text-4xl sm:text-6xl mt-4">Size M</div>
+        <div class="text-[#71b9b8] font-extrabold text-2xl sm:text-4xl mt-2">เหลือ 2 ช่อง</div>
       </div>
 
       <div class="bg-[#bdbdbd] rounded-[50px] p-6 flex flex-col items-center">
         <img src="https://placehold.co/200x200" alt="Size L" class="w-48 h-48" />
-        <div class="text-[#71b9b8] font-extrabold text-6xl mt-4">Size L</div>
-        <div class="text-[#71b9b8] font-extrabold text-4xl mt-2">เหลือ 3 ช่อง</div>
+        <div class="text-[#71b9b8] font-extrabold text-4xl sm:text-6xl mt-4">Size L</div>
+        <div class="text-[#71b9b8] font-extrabold text-2xl sm:text-4xl mt-2">เหลือ 3 ช่อง</div>
       </div>
     </div>
 
