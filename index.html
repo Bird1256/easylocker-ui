@@ -3,196 +3,69 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Smart Locker UI</title>
+<title>Smart Locker UI - Tailwind Style</title>
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
-  body {
-    margin: 0;
-    background: #5D626E;
-    font-family: 'Inter', sans-serif;
-    overflow: hidden;
+  /* Custom font sizes (Tailwind ปกติรองรับไม่ถึง 8xl) */
+  .text-8xl {
+    font-size: 6rem;
+    line-height: 1;
   }
-
-  /* หน้าแรก */
-  #page-home {
-  width: 1440px;
-  height: 1024px;
-  position: absolute;      /* หรือ fixed ก็ได้ */
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-  .background-shape {
-    width: 1045px;
-    height: 562.69px;
-    background: #BDBDBD;
-    border-radius: 129.55px;
-    position: absolute;
-    left: 197px;
-    top: 368px;
-  }
-
-  .button {
-    width: 417px;
-    height: 112px;
-    border-radius: 95px;
-    background: white;
-    position: absolute;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #71B9B8;
-    font-size: 64px;
-    font-weight: 400;
-    user-select: none;
-    transition: background-color 0.3s, color 0.3s;
-  }
-
-  .button:hover {
-    background-color: #71B9B8;
-    color: white;
-  }
-
-  #btn-deposit {
-    left: 511px;
-    top: 414px;
-  }
-
-  #btn-receive {
-    left: 511px;
-    top: 583px;
-  }
-
-  #btn-extend-time {
-    left: 511px;
-    top: 751px;
-  }
-
-  /* หน้าเลือก Size */
-  #page-select-size {
-    width: 1440px; height: 1024px;
-    position: relative;
-    background: #5D626E;
-    display: none; /* ซ่อนไว้ก่อน */
-    overflow: hidden;
-  }
-
-  .size-box {
-    width: 650px; height: 450px;
-    background: #BDBDBD;
-    border-radius: 129.55px;
-    position: absolute;
-    left: 520px;
-  }
-
-  #size-m-box {
-    top: 44px;
-  }
-
-  #size-l-box {
-    top: 537px;
-  }
-
-  .size-label {
-    position: absolute;
-    color: #71B9B8;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 64px;
-    text-align: center;
-    width: 311px;
-  }
-
-  #label-m {
-    left: 774px;
-    top: 168px;
-  }
-
-  #label-l {
-    left: 774px;
-    top: 649px;
-  }
-
-  .available-slots {
-    position: absolute;
-    width: 250px;
-    height: 110px;
-    color: #71B9B8;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 48px;
-    text-align: center;
-  }
-
-  #slots-m {
-    left: 820px;
-    top: 287px;
-  }
-
-  #slots-l {
-    left: 820px;
-    top: 770px;
-  }
-
-  .size-image {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    left: 575px;
-  }
-
-  #img-m {
-    top: 154px;
-  }
-
-  #img-l {
-    top: 655px;
-  }
-
-  /* ปุ่มกลับ */
-  #btn-back {
-    position: absolute;
-    left: 30px;
-    top: 30px;
-    padding: 15px 30px;
-    font-size: 24px;
-    border-radius: 40px;
-    border: none;
-    background: #71B9B8;
-    color: white;
-    cursor: pointer;
-  }
-
-  #btn-back:hover {
-    background: #569a99;
-  }
-
 </style>
 </head>
-<body>
+<body class="bg-[#fff8e7] flex justify-center items-center min-h-screen font-sans">
 
   <!-- หน้าแรก -->
-  <div id="page-home">
-    <div class="background-shape"></div>
-    <button id="btn-deposit" class="button">ฝากของ</button>
-    <button id="btn-receive" class="button">รับของ</button>
-    <button id="btn-extend-time" class="button">เพิ่มเวลา</button>
+  <div id="page-home" class="relative w-[1280px] h-[800px] bg-[#fff8e7]">
+    
+    <!-- โลโก้ -->
+    <div class="absolute top-[162px] left-[41px] w-[475px] h-[475px] flex flex-col items-center justify-center">
+      <div class="flex items-center gap-4 text-[#71b9b8]">
+        <span class="text-8xl font-bold">Easy</span>
+        <!-- ใช้ emoji แทนไอคอน lock ชั่วคราว -->
+        <span class="text-[#71b9b8]" style="font-size:6rem;">🔒</span>
+      </div>
+      <div class="text-8xl font-bold text-[#71b9b8] -mt-4">Locker</div>
+    </div>
+
+    <!-- ปุ่ม -->
+    <div id="btn-deposit" class="absolute top-[162px] left-[576px] w-[600px] h-[150px]">
+      <button
+        class="w-full h-full bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg border-0 text-black font-medium text-8xl"
+      >
+        ฝากของ
+      </button>
+    </div>
+    <div id="btn-receive" class="absolute top-[487px] left-[576px] w-[600px] h-[150px]">
+      <button
+        class="w-full h-full bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg border-0 text-black font-medium text-8xl"
+      >
+        รับของ
+      </button>
+    </div>
   </div>
 
-  <!-- หน้าเลือก Size -->
-  <div id="page-select-size">
-    <div id="size-m-box" class="size-box"></div>
-    <div id="size-l-box" class="size-box"></div>
+  <!-- หน้าเลือกขนาด -->
+  <div id="page-select-size" class="relative w-[1280px] h-[800px] bg-[#fff8e7] hidden">
 
-    <div id="label-m" class="size-label">Size M</div>
-    <img id="img-m" class="size-image" src="https://placehold.co/200x200" alt="Size M" />
-    <div id="slots-m" class="available-slots">เหลือ 2 ช่อง</div>
+    <button id="btn-back" class="absolute top-6 left-6 px-6 py-3 bg-[#71b9b8] text-white rounded-3xl hover:bg-[#5fa5a4] font-semibold">
+      กลับ
+    </button>
 
-    <div id="label-l" class="size-label">Size L</div>
-    <img id="img-l" class="size-image" src="https://placehold.co/200x200" alt="Size L" />
-    <div id="slots-l" class="available-slots">เหลือ 3 ช่อง</div>
+    <div class="max-w-3xl mx-auto mt-24 space-y-12">
+      <div class="bg-[#bdbdbd] rounded-[50px] p-6 flex flex-col items-center">
+        <img src="https://placehold.co/200x200" alt="Size M" class="w-48 h-48" />
+        <div class="text-[#71b9b8] font-extrabold text-6xl mt-4">Size M</div>
+        <div class="text-[#71b9b8] font-extrabold text-4xl mt-2">เหลือ 2 ช่อง</div>
+      </div>
 
-    <button id="btn-back">กลับ</button>
+      <div class="bg-[#bdbdbd] rounded-[50px] p-6 flex flex-col items-center">
+        <img src="https://placehold.co/200x200" alt="Size L" class="w-48 h-48" />
+        <div class="text-[#71b9b8] font-extrabold text-6xl mt-4">Size L</div>
+        <div class="text-[#71b9b8] font-extrabold text-4xl mt-2">เหลือ 3 ช่อง</div>
+      </div>
+    </div>
+
   </div>
 
 <script>
@@ -201,38 +74,16 @@
   const btnDeposit = document.getElementById('btn-deposit');
   const btnBack = document.getElementById('btn-back');
 
-  // เมื่อกด ฝากของ ให้ซ่อนหน้าแรก แล้วแสดงหน้าเลือก Size
   btnDeposit.addEventListener('click', () => {
-    pageHome.style.display = 'none';
-    pageSelectSize.style.display = 'block';
+    pageHome.classList.add('hidden');
+    pageSelectSize.classList.remove('hidden');
   });
 
-  // กดกลับ ให้กลับไปหน้าแรก
   btnBack.addEventListener('click', () => {
-    pageSelectSize.style.display = 'none';
-    pageHome.style.display = 'block';
+    pageSelectSize.classList.add('hidden');
+    pageHome.classList.remove('hidden');
   });
-
-  btnDeposit.addEventListener('click', () => {
-  pageHome.style.display = 'none';
-  pageSelectSize.style.display = 'block';
-
-  // ส่งข้อมูลไปยังเซิร์ฟเวอร์
-  fetch('http://localhost:5000/deposit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ action: 'deposit_clicked' })
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log("ตอบกลับจากเซิร์ฟเวอร์:", data);
-  })
-  .catch(err => {
-    console.error("เชื่อมต่อเซิร์ฟเวอร์ไม่ได้", err);
-  });
-});
-
 </script>
- 
+
 </body>
 </html>
