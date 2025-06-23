@@ -1,89 +1,44 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Smart Locker UI - Responsive</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  /* Custom font sizes (Tailwind ปกติรองรับไม่ถึง 8xl) */
-  .text-8xl {
-    font-size: 6rem;
-    line-height: 1;
-  }
-</style>
-</head>
-<body class="bg-[#fff8e7] flex justify-center items-center min-h-screen font-sans p-4">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Locker - iPhone Pro Max</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .text-5xl {
+        font-size: 3rem;
+        line-height: 1;
+      }
+    </style>
+  </head>
 
-  <!-- หน้าแรก -->
-  <div id="page-home" class="relative bg-[#fff8e7] max-w-[1280px] w-full h-auto sm:h-[800px] rounded-lg shadow-lg p-6 sm:p-12">
-    
-    <!-- โลโก้ -->
-    <div class="flex flex-col items-center sm:items-start sm:flex-row sm:gap-8">
-      <div class="flex items-center gap-4 text-[#71b9b8] mb-6 sm:mb-0">
-        <span class="text-6xl sm:text-8xl font-bold">Easy</span>
-        <!-- emoji lock -->
-        <span class="text-[#71b9b8] text-6xl sm:text-8xl">🔒</span>
-      </div>
-      <div class="text-6xl sm:text-8xl font-bold text-[#71b9b8]">Locker</div>
-    </div>
+  <body class="bg-[#fff8e7] flex justify-center items-center min-h-screen">
 
-    <!-- ปุ่ม -->
-    <div class="mt-12 space-y-8 sm:space-y-0 sm:flex sm:flex-col sm:gap-10">
+    <div class="bg-[#fff8e7] w-[430px] h-[932px] relative rounded-xl shadow-lg overflow-hidden">
+
+      <!-- โลโก้ -->
+      <img
+        src="easylocker_logo.png"
+        alt="Easy Locker Logo"
+        class="absolute w-[334px] h-[334px] top-[132px] left-[48px] object-contain"
+      />
+
+      <!-- ปุ่ม "ฝากของ" -->
       <button
-        id="btn-deposit"
-        class="w-full sm:w-[600px] h-[150px] bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg border-0 text-black font-medium text-5xl sm:text-8xl"
+        class="absolute top-[561px] left-[15px] w-[400px] h-20 bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg text-black text-5xl font-medium"
       >
         ฝากของ
       </button>
+
+      <!-- ปุ่ม "รับของ" -->
       <button
-        id="btn-receive"
-        class="w-full sm:w-[600px] h-[150px] bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg border-0 text-black font-medium text-5xl sm:text-8xl"
+        class="absolute top-[700px] left-[15px] w-[400px] h-20 bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg text-black text-5xl font-medium"
       >
         รับของ
       </button>
-    </div>
-  </div>
 
-  <!-- หน้าเลือกขนาด -->
-  <div id="page-select-size" class="relative bg-[#fff8e7] max-w-[1280px] w-full h-auto sm:h-[800px] rounded-lg shadow-lg p-6 sm:p-12 hidden mt-8">
-
-    <button id="btn-back" class="mb-6 px-6 py-3 bg-[#71b9b8] text-white rounded-3xl hover:bg-[#5fa5a4] font-semibold">
-      กลับ
-    </button>
-
-    <div class="space-y-12">
-      <div class="bg-[#bdbdbd] rounded-[50px] p-6 flex flex-col items-center">
-        <img src="https://placehold.co/200x200" alt="Size M" class="w-48 h-48" />
-        <div class="text-[#71b9b8] font-extrabold text-4xl sm:text-6xl mt-4">Size M</div>
-        <div class="text-[#71b9b8] font-extrabold text-2xl sm:text-4xl mt-2">เหลือ 2 ช่อง</div>
-      </div>
-
-      <div class="bg-[#bdbdbd] rounded-[50px] p-6 flex flex-col items-center">
-        <img src="https://placehold.co/200x200" alt="Size L" class="w-48 h-48" />
-        <div class="text-[#71b9b8] font-extrabold text-4xl sm:text-6xl mt-4">Size L</div>
-        <div class="text-[#71b9b8] font-extrabold text-2xl sm:text-4xl mt-2">เหลือ 3 ช่อง</div>
-      </div>
     </div>
 
-  </div>
-
-<script>
-  const pageHome = document.getElementById('page-home');
-  const pageSelectSize = document.getElementById('page-select-size');
-  const btnDeposit = document.getElementById('btn-deposit');
-  const btnBack = document.getElementById('btn-back');
-
-  btnDeposit.addEventListener('click', () => {
-    pageHome.classList.add('hidden');
-    pageSelectSize.classList.remove('hidden');
-  });
-
-  btnBack.addEventListener('click', () => {
-    pageSelectSize.classList.add('hidden');
-    pageHome.classList.remove('hidden');
-  });
-</script>
-
-</body>
+  </body>
 </html>
