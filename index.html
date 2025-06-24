@@ -1,48 +1,18 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Smart Locker - HTML Version</title>
-
-  <!-- เรียกใช้ Tailwind CSS จาก CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- ปรับขนาดฟอนต์ถ้าต้องการ -->
-  <style>
-    .text-5xl {
-      font-size: 3rem;
-      line-height: 1;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Easy Locker</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
-<body class="bg-[#fff8e7] flex justify-center items-center min-h-screen">
-
-  <div class="bg-[#fff8e7] w-[430px] h-[900px] relative rounded-xl shadow-lg overflow-hidden">
-
-    <!-- โลโก้ (รูปภาพ) -->
-<!-- โลโก้ (รูปภาพ) -->
-<div class="absolute top-[132px] w-full flex justify-center">
-  <img src="images/1.png" alt="โลโก้" class="w-[334px] h-[334px] object-contain" />
-</div>
-
-
-    <!-- ปุ่ม "ฝากของ" -->
-    <button
-      class="absolute top-[400px] left-12 w-[350px] h-[60px] bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg text-black text-[40px] font-medium leading-none"
-    >
-      ฝากของ
-    </button>
-
-    <!-- ปุ่ม "รับของ" -->
-    <button
-      class="absolute top-[510px] left-12 w-[350px] h-[60px] bg-[#71b9b8] hover:bg-[#5fa5a4] rounded-[50px] shadow-lg text-black text-[40px] font-medium leading-none"
-    >
-      รับของ
-    </button>
-
+<body>
+  <div class="container">
+    <img src="images/1.png" class="logo" alt="EasyLocker">
+    <div class="page-content">
+      <button class="btn" onclick="location.href='size.html'">ฝากของ</button>
+      <button class="btn" onclick="location.href='retrieve.html'">รับของ</button>
+    </div>
   </div>
-
 </body>
 </html>

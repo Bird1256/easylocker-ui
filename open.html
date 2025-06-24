@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ฝากของ – Easy Locker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="images/1.png" class="logo" alt="EasyLocker" />
+    <div class="page-content">
+      <h2 class="title">ฝากของเสร็จสิ้น</h2>
+      <div class="instruction-box">
+        โปรดวางสัมภาระลงในช่องเก็บของ<br/>
+        หลังจากนั้น ปิดประตูให้สนิท<br/>
+        กดปุ่ม “ยืนยัน” เพื่อรับ PIN สำหรับใช้ในการนำสัมภาระออก
+      </div>
+      <button class="btn" id="btn-confirm">ยืนยัน</button>
+    </div>
+  </div>
+
+  <script>
+    function generateLockerCode(size) {
+      const rand6 = Math.floor(100000 + Math.random() * 900000);
+      return `${size}-${rand6}`;
+    }
+
+    document.getElementById('btn-confirm').addEventListener('click', () => {
+      const params = new URLSearchParams(window.location.search);
+      const size = params.get('size') || localStorage.getItem('locker_size');
+      const pin = generateLockerCode(size);
+
+      localStorage.setItem('locker_pin', pin);
+      localStorage.setItem('locker_size', size);
+      localStorage.setItem('locker_startTime', Date.now());
+
+      location.href = 'pin.html';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ระยะเวลาใช้งาน – Easy Locker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="images/1.png" class="logo" alt="EasyLocker">
+    <div class="page-content">
+      <h2 class="title">คุณใช้ตู้เป็นเวลา</h2>
+      <div class="instruction-box" id="time-result">
+        กำลังคำนวณ...
+      </div>
+      <button class="btn" onclick="location.href='done.html'">เสร็จสิ้น</button>
+    </div>
+  </div>
+
+  <script>
+    const start = parseInt(localStorage.getItem('locker_startTime'), 10);
+    const now = Date.now();
+    if (!isNaN(start)) {
+      const elapsed = now - start;
+      const minutes = Math.floor(elapsed / 60000);
+      const seconds = Math.floor((elapsed % 60000) / 1000);
+      const timeStr = `${minutes} นาที ${seconds} วินาที`;
+      document.getElementById('time-result').innerText = timeStr;
+    } else {
+      document.getElementById('time-result').innerText = 'ไม่พบข้อมูลเวลาเริ่มต้น';
+    }
+  </script>
+</body>
+</html>

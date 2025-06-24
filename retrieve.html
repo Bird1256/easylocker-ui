@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>รับของ – Easy Locker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="images/1.png" class="logo" alt="EasyLocker" />
+
+    <div class="page-content" id="action-area">
+      <h2 class="title">PIN ของคุณ</h2>
+
+      <!-- ช่องกรอก PIN -->
+      <div class="pin-box">
+        <input
+          id="pin-input"
+          class="pin-input"
+          type="text"
+          placeholder="กรอกรหัส PIN เช่น M-123456"
+          autofocus
+        />
+      </div>
+
+      <!-- ปุ่มยืนยัน -->
+      <button class="btn" id="btn-pin-submit">ยืนยัน</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('btn-pin-submit').addEventListener('click', () => {
+      const entered = document.getElementById('pin-input').value.trim();
+      const stored  = localStorage.getItem('locker_pin');
+
+      if (entered === stored) {
+        document.getElementById('action-area').innerHTML = `
+          <h2 class="title">กำลังเปิดตู้…</h2>
+        `;
+        setTimeout(() => location.href = 'time.html', 800);
+      } else {
+        alert('รหัส PIN ไม่ถูกต้อง กรุณาลองใหม่');
+      }
+    });
+
+  </script>
+</body>
+</html>
