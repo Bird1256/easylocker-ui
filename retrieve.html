@@ -13,7 +13,6 @@
     <div class="page-content" id="action-area">
       <h2 class="title">PIN ของคุณ</h2>
 
-      <!-- ช่องกรอก PIN -->
       <div class="pin-box">
         <input
           id="pin-input"
@@ -24,27 +23,51 @@
         />
       </div>
 
-      <!-- ปุ่มยืนยัน -->
       <button class="btn" id="btn-pin-submit">ยืนยัน</button>
+    </div>
+
+    <!-- ปุ่มเชื่อมต่อ ESP32 -->
+    <div style="text-align: center; margin-top: 20px;">
+      <button class="btn" id="btn-connect">เชื่อมต่อ ESP32</button>
+      <p id="status-text" style="margin-top: 10px; color: green;"></p>
     </div>
   </div>
 
   <script>
-    // ฟังก์ชันส่งคำสั่งไปยัง ESP32 ผ่าน Serial
-    async function sendUnlockCommand() {
+    let globalPort = null;
+
+    // ปุ่มเชื่อมต่อ ESP32
+    document.getElementById('btn-connect').addEventListener('click', async () => {
       try {
         const port = await navigator.serial.requestPort();
         await port.open({ baudRate: 115200 });
-        const writer = port.writable.getWriter();
+        globalPort = port;
+
+        document.getElementById('status-text').textContent = "✅ เชื่อมต่อ ESP32 แล้ว";
+        document.getElementById('btn-connect').disabled = true;
+      } catch (err) {
+        alert("❌ ไม่สามารถเชื่อมต่อ ESP32 ได้: " + err.message);
+      }
+    });
+
+    // ส่งคำสั่ง UNLOCK ไปยัง ESP32
+    async function sendUnlockCommand() {
+      if (!globalPort) {
+        alert("⚠️ กรุณากดปุ่ม 'เชื่อมต่อ ESP32' ก่อน");
+        return;
+      }
+
+      try {
+        const writer = globalPort.writable.getWriter();
         const encoder = new TextEncoder();
         await writer.write(encoder.encode("UNLOCK\n"));
         writer.releaseLock();
       } catch (err) {
-        alert("ไม่สามารถเชื่อมต่อ ESP32 ได้: " + err.message);
+        alert("❌ ส่งคำสั่งไม่สำเร็จ: " + err.message);
       }
     }
 
-    // เมื่อผู้ใช้กดปุ่ม "ยืนยัน"
+    // เมื่อกดปุ่ม "ยืนยัน"
     document.getElementById('btn-pin-submit').addEventListener('click', async () => {
       const entered = document.getElementById('pin-input').value.trim();
       const stored  = localStorage.getItem('locker_pin');
