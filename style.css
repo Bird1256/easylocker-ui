@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  width:100%; height:100%;
+  background:#ddd;
+  display:flex; justify-content:center; align-items:center;
+  font-family:'Kanit',sans-serif;
+}
+.container {
+  position:relative;
+  width:430px; height:900px;
+  background:#FFF8E7;
+  border-radius:16px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  overflow:hidden;
+}
+/* โลโก้ EasyLocker */
+.logo {
+  position:absolute;
+  top:100px;
+  left:50%;
+  transform:translateX(-50%);
+  width:180px; height:auto;
+}
+/* โซนเนื้อหา เท่ากันทุกหน้า */
+.page-content {
+  position:absolute;
+  top:300px;
+  width:100%;
+  text-align:center;
+  padding:0 20px;
+}
+/* ปุ่มหลัก (ฝากของ/รับของ/ยืนยัน/กลับ) */
+.btn {
+  display:block;
+  width:350px; height:60px;
+  margin:16px auto;
+  background:#71B9B8; color:#000;
+  font-size:24px; font-weight:500;
+  border:none; border-radius:50px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  cursor:pointer; transition:background-color .2s;
+}
+.btn:hover { background:#5fa5a4; }
+/* หัวข้อย่อย */
+.title {
+  font-size:24px; color:#333;
+  margin-bottom:24px;
+}
+
+/* ———————————————————— */
+/* หน้า size.html */
+/* ———————————————————— */
+.size-card {
+  display:flex; align-items:center;
+  width:350px; height:80px;
+  background:#71B9B8; border-radius:30px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  margin:12px auto; cursor:pointer;
+  transition:background-color .2s;
+}
+.size-card:hover { background:#5fa5a4; }
+.icon-emoji { font-size:32px; margin:0 16px; }
+.text-group h3 { font-size:20px; margin:0; }
+.text-group p  { font-size:16px; margin:4px 0 0; }
+
+/* ———————————————————— */
+/* หน้า open.html */
+/* ———————————————————— */
+.instruction-box {
+  width:350px;
+  margin:0 auto 24px;
+  padding:12px;
+  background:#71B9B8;
+  border-radius:30px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  color:#000;
+  font-size:16px;
+  line-height:1.4;
+  text-align:left;
+}
+
+/* ———————————————————— */
+/* หน้า retrieve.html */
+/* ———————————————————— */
+.pin-box {
+  width:350px;
+  margin:0 auto 24px;
+  padding:16px;
+  background:#71B9B8;
+  border-radius:30px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  text-align:center;
+}
+.pin-input {
+  width:200px;
+  font-size:32px; font-weight:500;
+  border:none; background:transparent;
+  text-align:center;
+  letter-spacing:8px; color:#000;
+  outline:none;
+}

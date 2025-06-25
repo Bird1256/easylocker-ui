@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>รับของ – Easy Locker</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container"> 
     <img src="images/1.png" class="logo" alt="EasyLocker" />
 
     <div class="page-content" id="action-area">
@@ -25,12 +25,12 @@
 
       <button class="btn" id="btn-pin-submit">ยืนยัน</button>
     </div>
+  </div>
 
-    <!-- ปุ่มเชื่อมต่อ ESP32 -->
-    <div style="text-align: center; margin-top: 20px;">
-      <button class="btn" id="btn-connect">เชื่อมต่อ ESP32</button>
-      <p id="status-text" style="margin-top: 10px; color: green;"></p>
-    </div>
+  <!-- ✅ ปุ่มเชื่อมต่อ ESP32 เล็ก ล่างสุด -->
+  <div style="position: fixed; bottom: 10px; left: 0; width: 100%; text-align: center; font-size: 0.75rem;">
+    <button style="padding: 4px 10px; font-size: 0.75rem;" id="btn-connect">เชื่อมต่อ ESP32</button>
+    <span id="status-text" style="color: green; margin-left: 10px;"></span>
   </div>
 
   <script>
